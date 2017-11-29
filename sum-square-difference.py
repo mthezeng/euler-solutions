@@ -10,3 +10,4 @@ sum_of_squares = sum_100squares()
 square_of_sum = square_100sum()
 diff = sum_of_squares - square_of_sum
 print('{0} minus {1} equals {2}'.format(sum_of_squares, square_of_sum, diff))
+# use absolute value
