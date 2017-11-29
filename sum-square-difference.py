@@ -1,18 +1,10 @@
-def square(num):
-    return num * num
+import numpy as np
 
 def sum_100squares():
-    s = 0
-    for i in range(1,101):
-        s = s + square(i)
-    return s
+    return int((100*101*201)/6)
 
 def square_100sum():
-    s = 0
-    for i in range(1,101):
-        s = s + i
-    s = square(s)
-    return s
+    return int((101*100)/2) ** 2
 
 sum_of_squares = sum_100squares()
 square_of_sum = square_100sum()
