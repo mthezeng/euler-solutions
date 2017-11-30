@@ -1,4 +1,4 @@
 # euler-solutions
-Solutions to Project Euler problems
+Non-elegant, for-loop-filled, amateur solutions to Project Euler problems.
 
 https://projecteuler.net/archives
