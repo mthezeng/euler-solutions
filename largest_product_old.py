@@ -1,4 +1,5 @@
 import numpy as np
+from copy import deepcopy
 
 def build():
     x = np.genfromtxt('num.txt',dtype="str",delimiter="\n").flatten()
@@ -14,11 +15,11 @@ def thirteen_runs(num_string):
             if len(current_run) < 13:
                 current_run.append(n)
             else:
-                runs_list.append(current_run)
+                runs_list.append(deepcopy(current_run))
                 current_run.pop(0)
         else:
             if len(current_run) == 13:
-                runs_list.append(current_run)
+                runs_list.append(deepcopy(current_run))
             current_run = []
     return runs_list
 
