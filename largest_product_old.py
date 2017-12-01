@@ -1,5 +1,5 @@
 import numpy as np
-import copy
+from copy import deepcopy
 
 def build():
     x = np.genfromtxt('num.txt',dtype="str",delimiter="\n").flatten()
@@ -16,14 +16,14 @@ def thirteen_runs(num_string):
                 current_run.append(n)
             else:
                 #print('Before: ',runs_list)
-                runs_list.append(copy.deepcopy(current_run))
+                runs_list.append(deepcopy(current_run))
                 current_run.pop(0)
                 current_run.append(n)
                 #print('After: ',runs_list)
         else:
             if len(current_run) == 13:
                 #print('Before: ',runs_list)
-                runs_list.append(copy.deepcopy(current_run))
+                runs_list.append(deepcopy(current_run))
                 #print('After: ',runs_list)
             current_run = []
     return runs_list
@@ -36,7 +36,7 @@ def find_largest_product(list_of_runs):
         product = 1
         for n in current_run_list:
             product = product * n
-        products_list.append(copy.deepcopy(product))
+        products_list.append(deepcopy(product))
         #print(products_list)
     return max(products_list)
 
