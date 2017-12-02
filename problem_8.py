@@ -17,7 +17,7 @@ def thirteen_runs(num_string):
             else:
                 #print('Before: ',runs_list)
                 runs_list.append(deepcopy(current_run))
-                current_run.pop(0)
+                del current_run[0]
                 current_run.append(n)
                 #print('After: ',runs_list)
         else:
