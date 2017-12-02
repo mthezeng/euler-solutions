@@ -1,8 +1,6 @@
 """This is a brute-force solution using Euclid's formula for
 finding Pythagorean triples"""
 
-#import copy
-
 def pythagorean_triplet():
     a, b, c = 0, 0, 0
     m, n = 2, 1
@@ -12,9 +10,8 @@ def pythagorean_triplet():
     while k < 100:
         a = k*((m**2) - (n**2))
         b = k*(2*m*n)
-        c = k*((m**2) + (n**2)) #335, 499
+        c = k*((m**2) + (n**2))
         #print('({0}, {1}, {2})'.format(a,b,c))
-        #triples.append([copy(a),copy(b),copy(c)])
         #print(a+b+c)
         if (a + b + c) == 1000:
             found = True
