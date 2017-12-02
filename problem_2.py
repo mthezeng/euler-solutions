@@ -20,3 +20,25 @@ def even_fibs(value):
     return s
 
 print(even_fibs(4000000))
+
+
+# TV
+def improved_fibby():
+    """generator or something?"""
+    def fibonacci(n):
+        a,b = 1, 2
+        for i in range(n):
+            yield a
+            a, b = b, a + b
+
+    s = 0
+    for f in fibonacci(100000):
+        if f > 4000000:
+            break
+        elif f % 2 == 0:
+            s += f
+
+    print("Sum:", s)
+    return s
+
+improved_fibby()
