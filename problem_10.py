@@ -17,9 +17,9 @@ def primes(primes_list):
             if i % x == 0:
                 prime = False
                 break
-        if prime == False:
+        if not prime:
             i += 1
-        elif prime == True:
+        else:
             digits = len(str(primes_list[-1]))
             delete = "\b" * (digits)
             print('{0}{1}'.format(delete,i), end="")
