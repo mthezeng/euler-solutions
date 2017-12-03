@@ -3,18 +3,18 @@
 """
 
 def primes(primes_list, n):
-        i = primes_list[-1] + 1
-        while len(primes_list) < n:
-            prime = True
-            for x in primes_list:
-                if i % x == 0:
-                    prime = False
-                    break
-            if prime == False:
-                i += 1
-            elif prime == True:
-                primes_list.append(i)
-        return primes_list
+    i = primes_list[-1] + 1
+    while len(primes_list) < n:
+        prime = True
+        for x in primes_list:
+            if i % x == 0:
+                prime = False
+                break
+        if prime == False:
+            i += 1
+        elif prime == True:
+            primes_list.append(i)
+    return primes_list
 
 list_of_primes = [2,3,5,7,11,13]
 nth = int(input('nth prime: '))

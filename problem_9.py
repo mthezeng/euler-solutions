@@ -1,4 +1,5 @@
 import numpy as np
+from timer import timer
 
 
 def pythongorean_triplet():
