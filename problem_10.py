@@ -10,7 +10,8 @@ def primes(primes_list):
     #Modified from problem_7.py
     s = list_sum(primes_list)
     i = primes_list[-1] + 1
-    while primes_list[-1] < 2000000:
+    while primes_list[-1] < 1999992:
+        #1999993 is the last prime number before 2000000
         prime = True
         for x in primes_list:
             if i % x == 0:
