@@ -10,9 +10,9 @@ def primes(primes_list, n):
             if i % x == 0:
                 prime = False
                 break
-        if prime == False:
+        if not prime:
             i += 1
-        elif prime == True:
+        else:
             primes_list.append(i)
     return primes_list
 
