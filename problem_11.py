@@ -30,8 +30,8 @@ def build_leftdiagonal(grid):
     #starting from the top left corner and going towards the bottom right
     current_row, current_column = 1, 1
     leftdiagonals = []
-    current_diagonal = []
-    for c in range(4):
+    for c in range(20):
+        current_diagonal = []
         current_row, current_column = 1, c + 1
         while current_column >= 1:
             grid.seek((60 * (current_row - 1)) + (3 * (current_column - 1)))
