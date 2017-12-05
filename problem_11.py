@@ -44,7 +44,6 @@ def build_diagonal(grid, start):
         while not end:
             grid.seek((60 * (current_row - 1)) + (3 * (current_column - 1)))
             current_diagonal.append(int(grid.read(2)))
-            #print(current_diagonal)
             if start == 'left':
                 current_column -= 1
                 current_row += 1
@@ -57,9 +56,6 @@ def build_diagonal(grid, start):
                     end = True
         if len(current_diagonal) >= 4:
             diagonals.append(deepcopy(current_diagonal))
-            #print('Appended.')
-        #else:
-            #print('Not appended because length is less than 4.')
     grid.seek(0)
     return diagonals
 
@@ -76,13 +72,9 @@ def fourproducts_max(current_list, previous_max):
 
 twentygrid = open('twentygrid.txt')
 row_list = build_rows(twentygrid)
-#print(row_list)
 column_list = build_columns(twentygrid)
-#print(column_list)
 leftdiagonal_list = build_diagonal(twentygrid, 'left')
-#print(leftdiagonal_list)
 rightdiagonal_list = build_diagonal(twentygrid, 'right')
-#print(rightdiagonal_list)
 lists = [row_list, column_list, leftdiagonal_list, rightdiagonal_list]
 the_max = 0
 for l in range(4):
