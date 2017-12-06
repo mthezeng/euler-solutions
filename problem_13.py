@@ -1,5 +1,3 @@
-from timer import timer
-
 def addition_algorithm(numb3rs):
     """the elementary school addition algorithm
     numb3rs is a file object
