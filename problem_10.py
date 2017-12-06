@@ -23,4 +23,4 @@ def primes(primes_list):
     return s
 
 list_of_primes = [2,3,5,7,11,13]
-print('\n'+primes(list_of_primes))
+print('\n'+str(primes(list_of_primes)))
