@@ -2,7 +2,13 @@ def addition_algorithm(numb3rs):
     """the elementary school addition algorithm
     numb3rs is a file object
     returns a list of digits corresponding to the sum of all numbers in numb3rs
-    the list is in reverse order: the last digit appears first in the list"""
+    the list is in reverse order: the last digit appears first in the list
+    
+    Indeed, since python no longer has a maximum integer size, this can be brute-forced
+    more straight-forwardly by adding the numbers directly. This solution is
+    purely for the experience of coding the addition algorithm, and it can probably
+    be flexibly translated into other programming languages that do have a
+    maxmimum integer size."""
     sum_digits = []
     column_pos, row_pos = 1, 1
     carryover = 0
