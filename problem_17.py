@@ -28,15 +28,15 @@ def fundamental_num_letter(num):
     return num_letters
 
 def tens_num_letter(num):
-    #num must be between 20 and 99 inclusive for this function
+    #num must be below 100 for this function
     num_letters = 0
     if num < 20:
         num_letters = fundamental_num_letter(num)
-    elif num >= 40 and num <= 49:
-        #forty has five letters
+    elif num >= 40 and num < 70:
+        #forty, fifty, sixty has five letters
         num_letters = 5 + fundamental_num_letter(num % 10)
-    elif num < 70 or (num >= 80 and num < 100):
-        #twenty, thirty, fifty, sixty, eighty and ninety have six letters
+    elif num < 40 or (num >= 80 and num < 100):
+        #twenty, thirty, eighty and ninety have six letters
         num_letters = 6 + fundamental_num_letter(num % 10)
     elif num < 80:
         #seventy has seven letters
