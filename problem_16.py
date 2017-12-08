@@ -1,7 +1,5 @@
 def power_digit_sum(base, power):
-    x = 1
-    for i in range(power):
-        x = x * base
+    x = base ** power
     x_digits = str(x)
     x_digits = list(map(int, x_digits))
     return sum(x_digits)
