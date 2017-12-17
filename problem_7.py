@@ -17,7 +17,13 @@ def primes(primes_list, n):
     return primes_list
 
 list_of_primes = [2,3,5,7,11,13]
-nth = int(input('nth prime: '))
+nth = 0
+while True:
+    try:
+        nth = int(input('nth prime: '))
+        break
+    except ValueError:
+        print('n must be an integer.')
 while nth <= 0:
     print('Enter a value greater than 0.')
     nth = int(input('nth prime: '))

@@ -59,16 +59,29 @@ def number_letter_count(n):
         num_letters = 11
     return num_letters
 
+def get_user_integer():
+    while True:
+        try:
+            x1 = int(input('Integer less than or equal to 1000: '))
+            while x1 > 1000:
+                print('Your input must be less than or equal to 1000.')
+                x1 = int(input('Integer less than or equal to 1000: '))
+            while x1 <= 0:
+                print('Your input also cannot be zero or negative.')
+            return x1
+        except ValueError:
+            print('Your input must be an integer.')
+
 def user_input_mode():
     # alternate version of the program to find lengths of individual numbers
     # chiefly debugging purposes
-    x = int(input('Integer less than or equal to 1000: '))
-    print(number_letter_count(x))
+    while True:
+        x = get_user_integer()
+        print(number_letter_count(x))
 
 s = 0
-end = int(input('Integer less than or equal to 1000: '))
+end = get_user_integer()
 for i in range(1, end + 1):
     s = s + number_letter_count(i)
 print(s)
-"""while True:
-    user_input_mode()"""
+#user_input_mode()
