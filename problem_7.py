@@ -2,6 +2,8 @@
 @author Michael Zeng, Teemu Virtanen
 """
 
+import time
+
 def primes(primes_list, n):
     i = primes_list[-1] + 1
     while len(primes_list) < n:
@@ -27,6 +29,7 @@ while True:
 while nth <= 0:
     print('Enter a value greater than 0.')
     nth = int(input('nth prime: '))
+t = time.time()
 nth_prime = -1
 if nth <= 6:
     nth_prime = list_of_primes[nth-1]
@@ -34,3 +37,5 @@ else:
     list_of_primes = primes(list_of_primes, nth)
     nth_prime = list_of_primes[-1]
 print(nth_prime)
+elapsed = time.time() - t
+print('Executed in {0} seconds.'.format(elapsed))
