@@ -1,22 +1,23 @@
-"""Attribution:
+"""
+INCOMPLETE.
+
+Attribution:
 I owe a lot of thanks to Red Blob Games for their awesome
 instructional pages about pathfinding:
 https://www.redblobgames.com/pathfinding/grids/graphs.html
-https://www.redblobgames.com/pathfinding/a-star/implementation.html"""
+https://www.redblobgames.com/pathfinding/a-star/implementation.html
+"""
 
 import numpy as np
-from queue import PriorityQueue
+from queue import Queue
 
 class Graph:
     def __init__(self):
-        self.costs = np.genfromtxt('triangle.txt', dtype="int", delimiter=['\n', ' ']).T
+        #self.costs = np.genfromtxt('triangle.txt', dtype="int", delimiter=['\n', ' ']).T
         self.nodes = []
-        counter = 0
         for r in range(15):
             for c in range(r):
-                self.nodes.append([r, c, self.costs[counter]])
-                counter += 1
-        self.finalcounter = counter
+                self.nodes.append([r, c])
 
     def neighbors(self, node):
         directions = [[1, 0], [1,1]]
@@ -24,19 +25,18 @@ class Graph:
         for d in directions:
             result.append([node[0] + d[0], node[1] + d[1]])
         if result[0][0] > 15 or result[1][0] > 15:
-            return [[16,1, self.finalconter]]
+            return [[16,1]]
         else:
             return result
 
-    def cost(from_node, to_node):
+    """def cost(self, from_node, to_node):
         #returns cost of moving to to_node
-        return self.nodes[np.where(self.nodes[,0:2] == to_node)][2]
+        return self.nodes[np.where(self.nodes[,0:2] == to_node)][2]"""
 
 def breadth_first_search1(graph, start, goal):
-    frontier = PriorityQueue()
+    frontier = Queue()
     frontier.put(start)
-    came_from = []
-    cost_so_far = 75
+    visited = []
 
     while not frontier.empty():
         current = frontier.get()
@@ -46,10 +46,9 @@ def breadth_first_search1(graph, start, goal):
 
         print("Visiting {0}".format(current))
         for next in graph.neighbors(current):
-            new_cost = cost_so_far + graph.cost(next)
-            if graph.cost(next) :
+            if next not in visited:
                 frontier.put(next)
-                came_from.append(next)
+            visited.append(next)
 
 the_graph = Graph()
 breadth_first_search1(the_graph, [1,1], [16,1])
