@@ -58,7 +58,7 @@ def dijkstra(graph, start, goal):
         if current == goal:
             break
 
-        print("Visiting {0}".format(current))
+        #print("Visiting {0}".format(current))
         for next in graph.neighbors(current):
             new_cost = cost_so_far[current] + graph.cost(next)
             if next not in cost_so_far or new_cost > cost_so_far[next]:
