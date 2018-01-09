@@ -1,11 +1,13 @@
 """
-INCOMPLETE.
-
-Attribution:
+Acknowledgements:
 I owe a lot of thanks to Red Blob Games for their awesome
 instructional pages about pathfinding:
 https://www.redblobgames.com/pathfinding/grids/graphs.html
 https://www.redblobgames.com/pathfinding/a-star/implementation.html
+
+This implementation uses Dijkstra's algorithm, but I think it still has to
+go through every possible path, so we'll need to do some tweaking for heavy
+duty triangles, like the one in Problem 67 of Project Euler.
 """
 
 import numpy as np
@@ -26,13 +28,7 @@ class Graph:
                 self.costsfile.seek(seek_position)
                 current_row.append(int(self.costsfile.read(2)))
             self.costs.append(deepcopy(current_row))
-        self.costs.append([0])
-        print(self.costs)
-
-        self.nodes = []
-        for r in range(1,16):
-            for c in range(r):
-                self.nodes.append((r, c)) # (r, c) is a tuple
+        self.costs.append([0]) # cost of 0 for the final (16,1) node
 
     def neighbors(self, node):
         directions = [[1, 0], [1,1]]
@@ -44,40 +40,9 @@ class Graph:
         else:
             return result
 
-    def find_parents(self, node): #not sure if needed
-        directions = [[-1, -1], [-1, 0]]
-        if node[1] == node[0]:
-            del directions[1] #only one parent if node is on very right
-        elif node[1] == 1:
-            del directions[0] #only one parent if node is on very left
-        result = []
-        for d in directions:
-            result.append((node[0] + d[0], node[1] + d[1]))
-        return result
-
     def cost(self, to_node):
         #returns cost associated with moving away from to_node
-        print(to_node)
-        print(to_node[0] - 1)
-        print(to_node[1] - 1)
         return self.costs[to_node[0] - 1][to_node[1] - 1]
-
-def breadth_first_search1(graph, start, goal):
-    frontier = Queue()
-    frontier.put(start)
-    visited = []
-
-    while not frontier.empty():
-        current = frontier.get()
-
-        if current == goal:
-            break
-
-        print("Visiting {0}".format(current))
-        for next in graph.neighbors(current):
-            if next not in visited:
-                frontier.put(next)
-            visited.append(next)
 
 def dijkstra(graph, start, goal):
     frontier = PriorityQueue()
@@ -96,7 +61,6 @@ def dijkstra(graph, start, goal):
         print("Visiting {0}".format(current))
         for next in graph.neighbors(current):
             new_cost = cost_so_far[current] + graph.cost(next)
-            #print('Cost is: {0}'.format(new_cost - cost_so_far[current]))
             if next not in cost_so_far or new_cost > cost_so_far[next]:
                 cost_so_far[next] = new_cost
                 priority = 0 - new_cost
@@ -110,12 +74,11 @@ def reconstruct_path(came_from, start, goal):
     while current != start:
         path.append(current)
         current = came_from[current]
-    path.append(start) # optional
-    path.reverse() # optional
+    path.append(start)
+    path.reverse()
     return path
 
 the_graph = Graph()
-#breadth_first_search1(the_graph, (1,1), (16,1))
 dijkstra = dijkstra(the_graph, (1,1), (16,1))
 nodes_visited = reconstruct_path(dijkstra[0], (1,1), (16,1))
 print(dijkstra[1][(16,1)])
