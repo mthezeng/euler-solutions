@@ -10,8 +10,6 @@ go through every possible path, so we'll need to do some tweaking for heavy
 duty triangles, like the one in Problem 67 of Project Euler.
 """
 
-import numpy as np
-from queue import Queue
 from queue import PriorityQueue
 from copy import deepcopy
 
