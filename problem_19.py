@@ -17,13 +17,11 @@ def month_len(mon, year):
     return m_len
 
 def next_dow(cur_dow):
-    if cur_dow == 'Monday': return 'Tuesday'
-    elif cur_dow == 'Tuesday': return 'Wednesday'
-    elif cur_dow == 'Wednesday': return 'Thursday'
-    elif cur_dow == 'Thursday': return 'Friday'
-    elif cur_dow == 'Friday': return 'Saturday'
-    elif cur_dow == 'Saturday': return 'Sunday'
-    elif cur_dow == 'Sunday': return 'Monday'
+    # 1 is Monday, 2 is Tuesday, ..., 6 is Saturday, 7 is Sunday
+    if cur_dow < 7:
+        return cur_dow + 1
+    else:
+        return 1
 
 def counting_sundays(d, m, y, dow):
     #number of Sundays that fell on the first of the month in the 20th century
@@ -43,12 +41,12 @@ def counting_sundays(d, m, y, dow):
             m += 1
             d = 1
             dow = next_dow(dow)
-        if dow == 'Sunday':
+        if dow == 7:
             sundays += 1
     return sundays
 
 day = 1
 month = 1
 year = 1901
-day_of_week = 'Tuesday'
+day_of_week = 2
 print(counting_sundays(day, month, year, day_of_week))
