@@ -12,7 +12,7 @@ def month_len(mon, year):
                 m_len = 29
             else:
                 m_len = 28
-        if year % 4 == 0:
+        elif year % 4 == 0:
             m_len = 29
         else:
             m_len = 28
