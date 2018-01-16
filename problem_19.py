@@ -1,8 +1,10 @@
 def month_len(mon, year):
     m_len = 0
-    if mon == 1 or mon == 3 or mon == 5 or mon == 7 or mon == 8 or mon == 10 or mon == 12:
+    thirty_one = [1,3,5,7,8,10,12]
+    thirty = [4,6,9,11]
+    if mon in thirty_one:
         m_len = 31
-    elif mon == 4 or mon == 6 or mon == 9 or mon == 11:
+    elif mon in thirty:
         m_len = 30
     elif mon == 2:
         if year % 100 == 0:
