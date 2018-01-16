@@ -6,4 +6,4 @@ def sum_digits(x):
     x_digits = list(map(int, x_digits))
     return sum(x_digits)
 
-print(sum_digits(factorial(100)))
+print(sum_digits(factorial(99)))
