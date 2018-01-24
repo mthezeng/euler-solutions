@@ -1,5 +1,3 @@
-"""A playground/testing space for random code"""
-
 def dot(m1, m2):
     #dot product of two 2x2 matrices
     f1 = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0]
