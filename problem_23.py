@@ -1,3 +1,5 @@
+"""Note: This algorithm produces the correct solution, but it is very expensive,
+requiring around 20 minutes to compute."""
 import progressbar
 
 def is_abundant(n):
