@@ -5,18 +5,18 @@ def find_pos(pos,index,index_list):
     counter = 0
     if index == 0:
         index_list.append(counter)
-        return pos
+        return index_list
     new_pos = pos
     while new_pos < 1000000:
         pos = new_pos
         new_pos += factorial(index)
         counter += 1
     index_list.append(counter)
-    pos = find_pos(pos,index-1,index_list)
+    find_pos(pos,index-1,index_list)
     return index_list
 
 def create_permutation(factorial_list):
-    #factorial_list = [3, 7, 7, 3, 6, 2, 3, 2, 2]
+    # with thanks to Teemu for showing me how to use the reduce function
     nums = list(range(10))
     result = []
     for n in factorial_list:
