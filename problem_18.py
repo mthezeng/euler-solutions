@@ -77,7 +77,7 @@ def reconstruct_path(came_from, start, goal):
     return path
 
 the_graph = Graph()
-dijkstra = dijkstra(the_graph, (1,1), (16,1))
-nodes_visited = reconstruct_path(dijkstra[0], (1,1), (16,1))
-print(dijkstra[1][(16,1)])
-print(nodes_visited)
+dijkstra_nodes, dijkstra_costs = dijkstra(the_graph, (1,1), (16,1))
+nodes_visited = reconstruct_path(dijkstra_nodes, (1,1), (16,1))
+print('Maximum path had a sum of: {0}'.format(dijkstra_costs[(16,1)]))
+print('The path taken was: {0}'.format(nodes_visited))
