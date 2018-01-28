@@ -1,8 +1,10 @@
+"""This problem may also be solved by inspecting the following list published
+by the Online Encyclopedia of Integer Sequences: https://oeis.org/A051626/b051626.txt"""
 import progressbar
 from copy import deepcopy
 
 def division_algorithm(n):
-    """elementary school division algorithm
+    """elementary school long division algorithm
     returns a boolean for whether 1/n is a repeating decimal or a terminating one
     also returns the length of the decimal (or the repeating sequence of the decimal)
 
@@ -35,7 +37,6 @@ def division_algorithm(n):
     repeating, repeating_length = False, 0
     while dividend != 0 and not repeating:
         dividend = dividend * 10
-        #print(dividend,divisor,dividend // divisor)
         decimals.append(dividend // divisor)
         dividend = dividend % divisor
         counter += 1
