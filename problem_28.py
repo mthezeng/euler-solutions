@@ -7,6 +7,7 @@ def spiral_diagonal_sum(quadratic):
     return s
 
 def generate_quadratics():
+    # Acknowledgements: Dr. James Grime, Numberphile: https://www.youtube.com/watch?v=iFuR97YcSLM
     quadratic0 = lambda x: 4*(x*x) - 2*x + 1
     quadratic1 = lambda x: 4*(x*x) + 2*x + 1
     quadratic2 = lambda x: 4*(x*x) + 1
