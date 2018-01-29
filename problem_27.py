@@ -1,5 +1,5 @@
 from math import sqrt, ceil
-import time
+from timer import timer
 
 def is_prime(num):
     for i in range(2, ceil(sqrt(num))):
@@ -14,7 +14,7 @@ def quadratic_primes(a, b):
         n += 1
     return n
 
-def main():
+def brute_force():
     prev_max = 0
     prev_max_loc = (0,0)
     for a in range(-999, 1000):
@@ -25,9 +25,9 @@ def main():
                 prev_max_loc = (a,b)
     return prev_max_loc[0], prev_max_loc[1], prev_max
 
-t = time.time()
-a_result, b_result, primes_length = main()
-t = time.time() - t
-print('The product of {0} and {1} is {2}'.format(a_result, b_result, a_result * b_result))
-print('{0} primes were generated.'.format(primes_length))
-print('Executed in {0} seconds.'.format(t))
+def main():
+    a_result, b_result, primes_length = brute_force()
+    print('The product of {0} and {1} is {2}'.format(a_result, b_result, a_result * b_result))
+    print('{0} primes were generated.'.format(primes_length))
+
+timer(main)
