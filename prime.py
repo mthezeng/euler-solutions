@@ -38,13 +38,13 @@ def primes_upto(n):
     primes = set(range(2, n))
     for i in range(2, ceil(sqrt(n))):
         primes = primes - set(range(2*i, n, i))
-    return primes
+    return list(primes)
 
 
 def prime_factors(n):
     factors = []
     num = n
-    for p in primes(n):
+    for p in primes_upto(n):
         while num % p == 0:
             num = num // p
             factors.append(p)
@@ -52,7 +52,6 @@ def prime_factors(n):
 
 
 def main():
-    from p007 import primes
     user_n = int(input('n: '))
     print(prime_factors(user_n))
 
