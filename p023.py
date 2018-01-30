@@ -1,6 +1,6 @@
 """Note: This algorithm produces the correct solution, but it is very expensive,
 requiring around 20 minutes to compute."""
-import progressbar
+# import progressbar
 
 def is_abundant(n):
     abundant = False
@@ -13,10 +13,10 @@ def is_abundant(n):
     return abundant
 
 def non_abundants_list():
-    bar = progressbar.ProgressBar()
+    # bar = progressbar.ProgressBar()
     abundants = []
     non_abundant_sums = list(range(1,28124))
-    for i in bar(range(12,28124)):
+    for i in range(12,28124):
         if is_abundant(i):
             abundants.append(i)
             for a in abundants:
