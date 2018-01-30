@@ -1,10 +1,9 @@
-"""
-@author Michael Zeng, Teemu Virtanen
-"""
+from timer import timer
 
-import time
-
-def primes(primes_list, n):
+def primes(n):
+    primes_list = [2,3,5,7,11,13]
+    if n <= 6:
+        return primes_list[0:n]
     i = primes_list[-1] + 1
     while len(primes_list) < n:
         prime = True
@@ -18,24 +17,27 @@ def primes(primes_list, n):
             primes_list.append(i)
     return primes_list
 
-list_of_primes = [2,3,5,7,11,13]
-nth = 0
-while True:
-    try:
-        nth = int(input('nth prime: '))
-        break
-    except ValueError:
-        print('n must be an integer.')
-while nth <= 0:
-    print('Enter a value greater than 0.')
-    nth = int(input('nth prime: '))
-t = time.time()
-nth_prime = -1
-if nth <= 6:
-    nth_prime = list_of_primes[nth-1]
-else:
-    list_of_primes = primes(list_of_primes, nth)
+def get_user_n():
+    user_value = 0
+    while True:
+        try:
+            user_value = int(input('nth prime: '))
+            break
+        except ValueError:
+            print('n must be an integer.')
+    while user_value <= 0:
+        print('Enter a value greater than 0.')
+        user_value = int(input('nth prime: '))
+    return user_value
+
+def find_prime(nth):
+    list_of_primes = primes(nth)
     nth_prime = list_of_primes[-1]
-print(nth_prime)
-elapsed = time.time() - t
-print('Executed in {0} seconds.'.format(elapsed))
+    print(nth_prime)
+
+def main():
+    nth = get_user_n()
+    timer(find_prime,[nth])
+
+if __name__ == "__main__":
+    main()

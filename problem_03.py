@@ -1,7 +1,8 @@
 import numpy as np
+from math import ceil, sqrt
 
 def is_prime(num):
-    for i in range(2, int(np.ceil(np.sqrt(num)+1.0))):
+    for i in range(2, ceil(sqrt(num))):
         if num % i == 0:
             return False
     return True
