@@ -1,9 +1,7 @@
 from timer import timer
 
 def primes(n):
-    primes_list = [2,3,5,7,11,13]
-    if n <= 6:
-        return primes_list[0:n]
+    primes_list = [2]
     i = primes_list[-1] + 1
     while len(primes_list) < n:
         prime = True
@@ -11,10 +9,10 @@ def primes(n):
             if i % x == 0:
                 prime = False
                 break
-        if not prime:
-            i += 1
-        else:
+        if prime:
             primes_list.append(i)
+        else:
+            i += 1
     return primes_list
 
 def get_user_n():

@@ -1,4 +1,3 @@
-import numpy as np
 from math import ceil, sqrt
 
 def is_prime(num):
@@ -9,15 +8,15 @@ def is_prime(num):
 
 def lpf(n):
     prime_factors = []
-    for i in range(2, int(np.ceil(np.sqrt(n)+1.0))):
+    for i in range(2, ceil(sqrt(n))):
         if n % i == 0:
             print('i = ',i)
             if is_prime(i):
                 prime_factors.append(i)
                 print(prime_factors)
-            print('n/i = ',int(n/i))
-            if is_prime(int(n/i)):
-                prime_factors.append(int(n/i))
+            print('n/i = ',n//i)
+            if is_prime(n//i):
+                prime_factors.append(n//i)
                 print(prime_factors)
     return max(prime_factors)
 
