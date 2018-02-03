@@ -80,10 +80,13 @@ def coprime(n, m):
     True
     >>> coprime(14, 21)
     False
+    >>> coprime(15, 14)
+    True
+    >>> coprime(21, 14)
+    False
     """
     while m:
-        if n > m:
-            n, m = m, n
+        n, m = m, n
         m = m % n
     if n == 1:
         return True
