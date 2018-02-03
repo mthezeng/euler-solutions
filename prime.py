@@ -73,11 +73,22 @@ def coprime_deprecated(n, m):
 
 
 def coprime(n, m):
-    """Euclid's Algorithm"""
-    # https://en.wikipedia.org/wiki/Euclidean_algorithm
+    """Euclid's Algorithm
+    https://en.wikipedia.org/wiki/Euclidean_algorithm
 
-
-    return
+    >>> coprime(14, 15)
+    True
+    >>> coprime(14, 21)
+    False
+    """
+    while m:
+        if n > m:
+            n, m = m, n
+        m = m % n
+    if n == 1:
+        return True
+    else:
+        return False
 
 
 def main():
