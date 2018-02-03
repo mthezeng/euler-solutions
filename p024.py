@@ -23,7 +23,7 @@ def find_pos_iter():
     index_list = []
     i = 9
     pos = 0
-    while i:
+    while i >= 0:
         counter = 0
         new_pos = pos
         while new_pos < 1000000:
@@ -32,7 +32,6 @@ def find_pos_iter():
             counter += 1
         index_list.append(counter)
         i -= 1
-    index_list.append(0)
     return index_list
 
 def create_permutation(factorial_list):
