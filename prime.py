@@ -51,6 +51,35 @@ def prime_factors(n):
     return factors
 
 
+def coprime_deprecated(n, m):
+    """VERY INEFFICIENT"""
+    factors_n = set(prime_factors(n))
+    factors_m = set(prime_factors(m))
+
+    # use which ever has less elements
+    num = None
+    divisors = None
+    if len(factors_n) < len(factors_m):
+        num = m
+        divisors = factors_n
+    else:
+        num = n
+        divisors = factors_m
+
+    for d in divisors:
+        if num % d == 0:
+            return False
+    return True
+
+
+def coprime(n, m):
+    """Euclid's Algorithm"""
+    # https://en.wikipedia.org/wiki/Euclidean_algorithm
+
+
+    return
+
+
 def main():
     user_n = int(input('n: '))
     print(prime_factors(user_n))
