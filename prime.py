@@ -71,11 +71,17 @@ def coprime_deprecated(n, m):
             return False
     return True
 
+def gcd(n, m):
+    """"Euclid's Algorithm
+    https://en.wikipedia.org/wiki/Euclidean_algorithm
+    """
+    while m:
+        n, m = m, n
+        m = m % n
+    return n
 
 def coprime(n, m):
-    """Euclid's Algorithm
-    https://en.wikipedia.org/wiki/Euclidean_algorithm
-
+    """
     >>> coprime(14, 15)
     True
     >>> coprime(14, 21)
@@ -85,19 +91,7 @@ def coprime(n, m):
     >>> coprime(21, 14)
     False
     """
-    while m:
-        n, m = m, n
-        m = m % n
-    if n == 1:
+    if gcd(n, m) == 1:
         return True
     else:
         return False
-
-
-def main():
-    user_n = int(input('n: '))
-    print(prime_factors(user_n))
-
-
-if __name__ == "__main__":
-    main()
