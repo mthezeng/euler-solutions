@@ -91,7 +91,4 @@ def coprime(n, m):
     >>> coprime(21, 14)
     False
     """
-    if gcd(n, m) == 1:
-        return True
-    else:
-        return False
+    return gcd(n, m) == 1
