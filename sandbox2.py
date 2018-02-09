@@ -1,3 +1,6 @@
+"""This sandbox serves as a dumping ground for random code and is not meant to be executed."""
+
+
 """
 Before we remove the repeats from the list, we know there are 9801 terms in
 this list, since there are 99 bases and 99 exponents to check, forming a square.
@@ -32,3 +35,15 @@ def find_repeats():
             if repeated_value not in repeats:
                 repeats.append(repeated_value)
     return 9801 - len(repeats)
+
+
+if coins_available == [1]:
+    # only 1 way to make 2 pounds using only 1 pc coins
+    return 1
+elif coins_available == [1, 2]:
+    s, count = 2, 1
+    while s < 200:
+
+else:
+    del coins_available[-1]
+    return coin_sums(coins_available)
