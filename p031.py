@@ -11,8 +11,7 @@ def coin_sums(coins, current_sum):
     return coin_sums(coins, current_sum + coins[0]) + coin_sums(coins[1:], current_sum)
 
 def main():
-    coins_available = [100, 50, 20, 10, 5, 2, 1]
-    print(coin_sums(coins_available, 0) + 1)
-    # the stray 1 accounts for the case in which you have one 200 pc coin
+    coins_available = [200, 100, 50, 20, 10, 5, 2, 1]
+    print(coin_sums(coins_available, 0))
 
 timer(main)
