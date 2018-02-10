@@ -8,7 +8,8 @@ def coin_sums(coins, current_sum):
         return 0
     elif current_sum == 200:
         return 1
-    return coin_sums(coins, current_sum + coins[0]) + coin_sums(coins[1:], current_sum)
+    else:
+        return coin_sums(coins, current_sum + coins[0]) + coin_sums(coins[1:], current_sum)
 
 def main():
     coins_available = [200, 100, 50, 20, 10, 5, 2, 1]
