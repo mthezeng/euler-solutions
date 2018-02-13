@@ -81,14 +81,14 @@ def gcd(n, m):
     return n
 
 def extended_gcd(x, y):
-    """
+    """Extended Euclid's Algorithm
     http://www.eecs70.org/static/notes/n6.html#extended-euclids-algorithm
     """
     if y == 0:
         return x, 1, 0
     else:
         d, a, b = extended_gcd(y, x % y)
-        return(d, b, a - (x // y) * b)
+        return d, b, a - (x // y) * b
 
 def coprime(n, m):
     """
