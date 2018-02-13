@@ -47,3 +47,19 @@ elif coins_available == [1, 2]:
 else:
     del coins_available[-1]
     return coin_sums(coins_available)
+
+def tetration(value, tetronent):
+    """tetronent refers to the length of the tetration tower
+
+    >>> print(tetration(3,3))
+    7625597484987
+    """
+    exp, digit = 0, value
+    if tetronent != 1:
+        exp = tetration(digit, tetronent-1)
+        """builds new frames of tetration() with decreasing values
+        until tetronent becomes 1 (i.e. until number of frames equals
+        tetronent), passing digit each time"""
+        digit = digit**exp
+        """returns digit multiplied by exponent, going up each frame"""
+    return digit

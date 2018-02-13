@@ -46,7 +46,7 @@ def prime_factors(n):
     num = n
     for p in primes_upto(n):
         while num % p == 0:
-            num = num // p
+            num //= p
             factors.append(p)
     return factors
 
@@ -79,6 +79,16 @@ def gcd(n, m):
         n, m = m, n
         m = m % n
     return n
+
+def extended_gcd(x, y):
+    """
+    http://www.eecs70.org/static/notes/n6.html#extended-euclids-algorithm
+    """
+    if y == 0:
+        return x, 1, 0
+    else:
+        d, a, b = extended_gcd(y, x % y)
+        return(d, b, a - (x // y) * b)
 
 def coprime(n, m):
     """

@@ -3,10 +3,7 @@ def is_pandigital(n1, n2, product):
     combined_str = str(n1) + str(n2) + str(product)
     combined_str = list(map(int, combined_str))
     combined_str.sort()
-    if all_digits == combined_str:
-        return True
-    else:
-        return False
+    return all_digits == combined_str
 
 def add_to_products(a, b, products):
     if is_pandigital(a, b, a * b):
