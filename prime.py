@@ -83,6 +83,13 @@ def gcd(n, m):
 def extended_gcd(x, y):
     """Extended Euclid's Algorithm
     http://www.eecs70.org/static/notes/n6.html#extended-euclids-algorithm
+    Finds integers a and b such that gcd(x, y) = ax + by
+
+    >>> g, a, b = extended_gcd(16, 10)
+    >>> a
+    2
+    >>> b
+    -3
     """
     if y == 0:
         return x, 1, 0
