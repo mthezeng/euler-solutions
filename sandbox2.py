@@ -37,6 +37,33 @@ def find_repeats():
     return 9801 - len(repeats)
 
 
+"""
+Before we remove the repeats from the list, we know there are 9801 terms in
+this list, since there are 99 bases and 99 exponents to check, forming a square.
+"""
+from copy import deepcopy
+
+def find_repeats():
+    """repeatable_bases are bases <= 100 that themselves can be created by
+    other exponents"""
+    repeats = []
+    repeatable_bases = [81, 64, 49, 36, 32, 27, 25, 16, 9, 8, 4]
+    count = 0
+    #for b in repeatable_bases:
+    return 9801 - len(repeats)
+
+def generate_bases():
+    bases = []
+    for a in range(2,10):
+        for b in range(2,7):
+            current = []
+            if a ** b < 100:
+                current.append((a,b))
+            bases.append(deepcopy(current))
+    print(bases)
+    return bases
+
+
 if coins_available == [1]:
     # only 1 way to make 2 pounds using only 1 pc coins
     return 1
