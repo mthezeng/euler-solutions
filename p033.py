@@ -13,8 +13,8 @@ def cancelling_fallacy(numerator, denominator):
     numer_lst, denom_lst = list(str(numerator)), list(str(denominator))
     for digit in numer_lst:
         if digit in denom_lst:
-            del numer_lst[numer_lst.index(digit)]
-            del denom_lst[denom_lst.index(digit)]
+            numer_lst.remove(digit)
+            denom_lst.remove(digit)
     if numerator / denominator == int(numer_lst[0]) / int(denom_lst[0]):
         print('{0} / {1} = {2} / {3}'.format(numerator, denominator, int(numer_lst[0]), int(denom_lst[0])))
         return [int(numer_lst[0]), int(denom_lst[0])] #True value

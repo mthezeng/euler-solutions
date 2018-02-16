@@ -21,7 +21,7 @@ def non_abundants_list():
             abundants.append(i)
             for a in abundants:
                 if (a + i) in non_abundant_sums:
-                    del non_abundant_sums[non_abundant_sums.index(a + i)]
+                    non_abundant_sums.remove(a + i)
     return non_abundant_sums
 
 print(sum(non_abundants_list()))
