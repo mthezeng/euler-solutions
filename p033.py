@@ -26,9 +26,9 @@ def digit_cancelling_fractions():
     for numer in range(10, 100):
         for denom in range(numer, 100):
             if digit_diff(numer, denom) == 1:
-                cancel = cancelling_fallacy(numer, denom)
-                if cancel:
-                    fractions += [cancel]
+                cancel_works = cancelling_fallacy(numer, denom)
+                if cancel_works:
+                    fractions.append(cancel_works)
     return fractions
 
 def product_fracs(frac_list):
