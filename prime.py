@@ -109,3 +109,8 @@ def coprime(n, m):
     False
     """
     return gcd(n, m) == 1
+
+def coprimes_upto(n):
+    """returns the positive numbers below n that are coprime to n
+    See problem 3: http://www.eecs70.org/static/homeworks/hw04.pdf"""
+    return [i for i in range(1, n) if gcd(n, i) == 1]
