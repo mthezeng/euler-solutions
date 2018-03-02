@@ -13,17 +13,14 @@ def rotations(n):
 def rotate(n):
     return (n % 10) * (10 ** floor(log10(n))) + n // 10
 
-def rotations_prime(n):
+def is_circularprime(n):
     for i in rotations(n):
         if not is_prime(i):
             return False
     return True
 
 def main():
-    circular_primes = []
-    for p in primes_upto(int(1e6)):
-        if rotations_prime(p):
-            circular_primes.append(p)
+    circular_primes = [p for p in primes_upto(int(1e6)) if is_circularprime(p)]
     print(circular_primes)
     print('There are {0} circular primes below one million.'.format(len(circular_primes)))
 
