@@ -1,7 +1,7 @@
 import numpy as np
-from timer import timer
+from timer import timed
 
-
+@timed
 def pythongorean_triplet():
     r = np.arange(1, 499)
     x, y = np.meshgrid(r, r)
@@ -22,6 +22,7 @@ pythongorean_triplet()
 
 # MZ
 
+@timed
 def inferior_triplet():
     def pythagorean_triplet():
         a, b, c = 0, 0, 0

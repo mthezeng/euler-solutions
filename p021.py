@@ -1,5 +1,6 @@
 from math import ceil
 from math import sqrt
+from timer import timed
 
 def find_divisors(n):
     divs = [1]
@@ -9,6 +10,7 @@ def find_divisors(n):
             divs.append(int(n/i))
     return divs
 
+@timed
 def amicable():
     amicable_numbers = []
     for a in range(1, 10000):

@@ -1,29 +1,11 @@
 from math import factorial
 from functools import reduce
-import time
+from timer import timed
 
-def find_pos(pos,index,index_list):
-    # half-recursive, half-iterative solution
-    if index == 0:
-        index_list.append(0)
-        return index_list
-    else:
-        counter = 0
-        new_pos = pos
-        while new_pos < 1000000:
-            pos = new_pos
-            new_pos += factorial(index)
-            counter += 1
-        index_list.append(counter)
-        find_pos(pos,index-1, index_list)
-    return index_list
-
-def find_pos_iter():
-    # fully iterative solution
+def find_pos():
     index_list = []
-    i = 9
     pos = 0
-    while i >= 0:
+    for i in range(9, -1, -1):
         counter = 0
         new_pos = pos
         while new_pos < 1000000:
@@ -31,9 +13,9 @@ def find_pos_iter():
             new_pos += factorial(i)
             counter += 1
         index_list.append(counter)
-        i -= 1
     return index_list
 
+@timed
 def create_permutation(factorial_list):
     # with thanks to Teemu for showing me how to use the reduce function
     nums = list(range(10))
@@ -43,12 +25,4 @@ def create_permutation(factorial_list):
     result_string = reduce(lambda i, j: str(i) + str(j), result, '')
     return int(result_string)
 
-# half-recursive, half-iterative solution
-t = time.time()
-print(create_permutation(find_pos(0,9,[])))
-print('Executed in {0} seconds.'.format(time.time() - t))
-
-# fully iterative solution
-t = time.time()
-print(create_permutation(find_pos_iter()))
-print('Executed in {0} seconds.'.format(time.time() - t))
+print(create_permutation(find_pos()))

@@ -1,4 +1,5 @@
 from math import gcd
+from timer import timed
 
 def digit_diff(a, b):
     # returns the number of digits that different between two numbers
@@ -27,6 +28,7 @@ def cancelling_fallacy(numerator, denominator):
     else:
         return False
 
+@timed
 def digit_cancelling_fractions():
     fractions = []
     for numer in range(10, 100):

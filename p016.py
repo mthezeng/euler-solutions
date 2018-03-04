@@ -1,3 +1,6 @@
+from timer import timed
+
+@timed
 def power_digit_sum(base, power):
     x = base ** power
     x_digits = str(x)

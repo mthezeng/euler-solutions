@@ -1,3 +1,5 @@
+from timer import timed
+
 def dot(m1, m2):
     #dot product of two 2x2 matrices
     #workaround solution for numpy's max integer size
@@ -7,6 +9,7 @@ def dot(m1, m2):
     f4 = m1[1][0] * m2[0][1] + m1[1][1] * m2[1][1]
     return [[ f1, f2 ], [ f3, f4 ]]
 
+@timed
 def fibonacci_matrix(n):
     f_origin = [[1,1],[1,0]]
     f = f_origin

@@ -1,6 +1,6 @@
 from prime import primes_upto, is_prime
 from math import log10, floor
-from timer import timer
+from timer import timed
 
 def rotations(n):
     result = {n}
@@ -19,9 +19,10 @@ def is_circularprime(n):
             return False
     return True
 
+@timed
 def main():
     circular_primes = [p for p in primes_upto(int(1e6)) if is_circularprime(p)]
     print(circular_primes)
     print('There are {0} circular primes below one million.'.format(len(circular_primes)))
 
-timer(main)
+main()

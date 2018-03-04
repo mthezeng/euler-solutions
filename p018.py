@@ -12,6 +12,7 @@ duty triangles, like the one in Problem 67 of Project Euler.
 
 from queue import PriorityQueue
 from copy import deepcopy
+from timer import timed
 
 class Graph:
     def __init__(self):
@@ -76,8 +77,12 @@ def reconstruct_path(came_from, start, goal):
     path.reverse()
     return path
 
-the_graph = Graph()
-dijkstra_nodes, dijkstra_costs = dijkstra(the_graph, (1,1), (16,1))
-nodes_visited = reconstruct_path(dijkstra_nodes, (1,1), (16,1))
-print('Maximum path had a sum of: {0}'.format(dijkstra_costs[(16,1)]))
-print('The path taken was: {0}'.format(nodes_visited))
+@timed
+def main():
+    the_graph = Graph()
+    dijkstra_nodes, dijkstra_costs = dijkstra(the_graph, (1,1), (16,1))
+    nodes_visited = reconstruct_path(dijkstra_nodes, (1,1), (16,1))
+    print('Maximum path had a sum of: {0}'.format(dijkstra_costs[(16,1)]))
+    print('The path taken was: {0}'.format(nodes_visited))
+
+main()
