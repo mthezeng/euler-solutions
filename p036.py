@@ -14,6 +14,7 @@ def main():
     double_base_palindromes = []
     for i in range(int(1e6)):
         if is_palindrome(i) and is_palindrome(to_binary(i)):
+            print(i, to_binary(i))
             double_base_palindromes.append(i)
     print(sum(double_base_palindromes))
 
