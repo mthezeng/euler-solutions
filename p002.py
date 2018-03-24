@@ -1,9 +1,5 @@
-def fibonacci(n):
-    #returns the nth fibonacci number
-    x = 1
-    if n > 0:
-        x = fibonacci(n-1) + fibonacci(n-2)
-    return x
+from timer import timer
+from fibonacci import fib_tree
 
 def even_fibs(value):
     """returns sum of fibonacci numbers
@@ -12,15 +8,16 @@ def even_fibs(value):
     current_fib = 1
     i = 1
     while current_fib < value:
-        current_fib = fibonacci(i)
         if current_fib % 2 == 0:
-            print(s,' ',current_fib)
             s = s + current_fib
+        current_fib = fib_tree(i)
         i += 1
     return s
 
-print(even_fibs(4000000))
+def main():
+    print(even_fibs(4000000))
 
+timer(main)
 
 # TV
 def improved_fibby():
@@ -41,4 +38,4 @@ def improved_fibby():
     print("Sum:", s)
     return s
 
-improved_fibby()
+timer(improved_fibby)

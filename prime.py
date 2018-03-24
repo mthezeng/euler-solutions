@@ -3,7 +3,9 @@ def is_prime(n):
     Check if a number is prime
     """
     from math import ceil, sqrt
-    if n == 2 or n == 3:
+    if n <= 1:
+        return False
+    elif n == 2 or n == 3:
         return True
     elif n % 2 == 0:
         return False
@@ -40,8 +42,8 @@ def primes_upto(n):
         primes = primes - set(range(2*i, n, i))
     return list(primes)
 
-
-def prime_factors(n):
+def prime_factors_deprecated(n):
+    """Expensive for large numbers because it generates a list of all primes up to n first."""
     factors = []
     num = n
     for p in primes_upto(n):
@@ -50,6 +52,17 @@ def prime_factors(n):
             factors.append(p)
     return factors
 
+def prime_factors(n):
+    from math import ceil, sqrt
+    prime_factors = []
+    for i in range(2, ceil(sqrt(n))):
+        while n % i == 0:
+            n //= i
+            if is_prime(i):
+                prime_factors.append(i)
+            if n != i and is_prime(n):
+                prime_factors.append(n)
+    return prime_factors
 
 def coprime_deprecated(n, m):
     """VERY INEFFICIENT"""
