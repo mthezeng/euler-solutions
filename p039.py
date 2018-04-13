@@ -1,36 +1,39 @@
 from timer import timed
 
-def pythagorean_triples():
-    # based on p009.py
+def pythagorean_triples(upper):
+    '''based on p009.py
+    returns a dictionary of all pythagorean triples up to upper (noninclusive),
+    with keys representing perimeters'''
     triples = {}
     a, b, c = 0, 0, 0
     m, n = 2, 1
     k = 1
 
-    def reset():
+    def reset(constant=1):
+        """Euclid's formula
+        https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple
+        """
         nonlocal a, b, c
-        a = ((m ** 2) - (n ** 2))
-        b = (2 * m * n)
-        c = ((m ** 2) + (n ** 2))
+        a = constant * ((m ** 2) - (n ** 2))
+        b = constant * (2 * m * n)
+        c = constant * ((m ** 2) + (n ** 2))
 
-    while m < 998:
+    while m < upper:
         n = 1
         reset()
-        while m > n and n < 998:
+        while m > n and n < upper:
             k = 1
             reset()
-            while (a + b + c) <= 1000:
-                a = k * ((m ** 2) - (n ** 2))
-                b = k * (2 * m * n)
-                c = k * ((m ** 2) + (n ** 2))
+            sum = a + b + c
+            while sum <= upper:
+                reset(k)
                 sum = a + b + c
-                if sum >= 1000:
+                if sum >= upper:
                     break
                 triple = [a, b, c]
                 triple.sort()
-                #print(sum, k, triple)
                 if sum in triples.keys():
-                    if triple not in triples[a + b + c]:
+                    if triple not in triples[sum]:
                         triples[sum].append(triple)
                 else:
                     triples[sum] = [triple]
@@ -42,7 +45,7 @@ def pythagorean_triples():
 
 @timed
 def main():
-    triples_dict = pythagorean_triples()
+    triples_dict = pythagorean_triples(1000)
     result = max(triples_dict, key=lambda x: len(triples_dict[x]))
     result_triples = triples_dict[result]
     print('{0} has {1} triples: {2}'.format(result, len(result_triples), result_triples))
