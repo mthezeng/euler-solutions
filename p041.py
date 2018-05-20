@@ -11,7 +11,6 @@ def pandigital_prime():
             p = permutations(digits)
             while True:
                 current = int(reduce(lambda x, y: str(x) + str(y), next(p), ''))
-                #print(current)
                 if is_prime(current):
                     return current
         except StopIteration:
