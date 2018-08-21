@@ -9,15 +9,15 @@ def fits_property(n):
     >>> fits_property(1234567890)
     False
     """
-    primes = [2,3,5,7,11,13,17]
-    bounds = [1,4]
+    primes = (2,3,5,7,11,13,17)
+    begin, end = 1, 4
     n_str = str(n)
     for p in primes:
-        if int(n_str[bounds[0]:bounds[1]]) % p != 0:
+        if int(n_str[begin:end]) % p != 0:
             return False
         else:
-            bounds[0] += 1
-            bounds[1] += 1
+            begin += 1
+            end += 1
     return True
 
 def substring_divisibility():

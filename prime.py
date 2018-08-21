@@ -20,13 +20,13 @@ def prime_gen(n):
     A generator that yields n prime numbers
     """
     from numpy import mod
-    l = [2, 3]
+    primes = [2, 3]
     yield 2
     yield 3
     i = 3
-    while len(l) < n:
+    while len(primes) < n:
         if not 0 in mod(i, l):
-            l.append(i)
+            primes.append(i)
             yield i
         i += 2
 
