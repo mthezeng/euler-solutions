@@ -1,3 +1,5 @@
+from timer import timed
+
 from math import sqrt
 triangle = lambda n: (n * (n + 1)) // 2
 pentagonal_inverse = lambda y: (1 + sqrt(24*y + 1)) / 6
@@ -12,6 +14,7 @@ def check(y, t):
     else:
         return False
 
+@timed
 def main():
     n = 286
     while not check(triangle(n), n):
