@@ -1,7 +1,6 @@
 # euler-solutions
-Non-elegant, for-loop-filled, amateur, oftentimes just simple brute-force
-solutions to Project Euler problems.
+Solutions to Project Euler problems. Many of these are a work-in progress; although they may produce the correct result, some of the algorithms are woefully inefficient. The ultimate challenge is to make them all as efficient as they can be!
 
 https://projecteuler.net/archives
 
-Many of the solutions here require numpy: http://www.numpy.org/
+Some solutions require numpy: http://www.numpy.org/
